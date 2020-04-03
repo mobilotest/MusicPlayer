@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void play(View view) {
         mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                Toast.makeText(getApplicationContext(), "I'm done",Toast.LENGTH_SHORT).show();
+            }
+        });
         tx1 = (TextView)findViewById(R.id.textView);
         tx1.setText("R A I S E !  PLAYING");
         Toast.makeText(getApplicationContext(), "Playing sound",Toast.LENGTH_SHORT).show();
